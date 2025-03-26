@@ -24,76 +24,67 @@
 
 ## Install
 
-1. Add `alfurqan` as a dependency in your pubspec.yaml.
+Add `alfurqan` as a dependency.
 
-    ```yaml
-    dependencies:
-      alfurqan: any
-    ```
+  ```bash
+  yarn add alfurqan
 
-2. Install it
+  # or
 
-    ```shell
-    flutter pub get
-    ```
-
-3. And import it
-
-    ```dart
-    import 'package:alfurqan/alfurqan.dart';
-    ```
+  npm i alfurqan
+  ```
 
 ### Usage
 
 - Basmallah
 
-  ```dart
-  final basmallah = AlQuran.basmallah;
-  print(basmallah); // بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+  ```ts
+  const basmallah = AlQuran.basmallah;
+  console.log(basmallah); // بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
   ```
 
 - Total Juz
 
-  ```dart
-  final totalJuz = AlQuran.totalJuz;
-  print(totalJuz); // 30
+  ```ts
+  const totalJuz = AlQuran.totalJuz;
+  console.log(totalJuz); // 30
   ```
 
 - Total Chapter
 
-  ```dart
-  final totalChapter = AlQuran.totalChapter;
-  print(totalChapter); // 114
+  ```ts
+  const totalChapter = AlQuran.totalChapter;
+  console.log(totalChapter); // 114
   ```
 
 - Total Madani
 
-  ```dart
-  final totalMadani = AlQuran.totalMadaniSurah;
-  print(totalMadani); // 28
+  ```ts
+  const totalMadani = AlQuran.totalMadaniSurah;
+  console.log(totalMadani); // 28
   ```
 
 - Total Makki
 
-  ```dart
-  final totalMakki = AlQuran.totalMakkiSurah;
-  print(totalMakki); // 86
+  ```ts
+  const totalMakki = AlQuran.totalMakkiSurah;
+  console.log(totalMakki); // 86
   ```
 
 - Total Verse
 
-  ```dart
-  final totalVerse = AlQuran.totalVerse;
-  print(totalVerse); // 6236
+  ```ts
+  const totalVerse = AlQuran.totalVerse;
+  console.log(totalVerse); // 6236
   ```
 
 - Juz
 
-  ```dart
-  final juz = AlQuran.getJuz(1, 1);
-  print(juz);
-  // Juz(
-  //   verse: JuzVerse(
+  ```ts
+  const juz = AlQuran.getJuz(1, 1);
+  console.log(juz);
+  // {
+  //   verse: {
   //     first: 1,
   //     last: 148,
   //     count: 148,
@@ -101,18 +92,18 @@
   //       1: 1-7,
   //       2: 1-141
   //     }
-  //   ),
+  //   },
   //   id: 1,
   //   number: 1
-  // )
+  // }
   ```
 
 - Chapter
 
-  ```dart
-  final chapter = AlQuran.getChapter(1);
-  print(chapter);
-  // Chapter(
+  ```ts
+  const chapter = AlQuran.getChapter(1);
+  console.log(chapter);
+  // {
   //   id: 1,
   //   bismillahPre: false,
   //   nameArabic: "الفاتحة",
@@ -120,7 +111,7 @@
   //   nameSimple: "Al-Fatihah",
   //   pages: [1, 1],
   //   revelationOrder: 5,
-  //   revelationPlace: ChapterRevelationPlace.makkah,
+  //   revelationPlace: 'makkah',
   //   translatedName: {
   //     id: "Pembukaan",
   //     en: "The Opener",
@@ -129,119 +120,119 @@
   //     fr: "Louverture"
   //   },
   //   versesCount: 7
-  // )
+  // }
   ```
 
 - Verse
 
-  ```dart
-  final verse = AlQuran.getVerse(1, 1);
-  print(verse);
-  // Verse(
+  ```ts
+  const verse = AlQuran.getVerse(1, 1);
+  console.log(verse);
+  // {
   //   id: 1,
   //   verseKey: "1:1",
   //   text: "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
   //   chapterID: 1,
   //   pageNumber: 1,
   //   juzNumber: 1
-  // );
+  // };
 
   // With Mode. Available indopak, uthmani, uthmani tajweed, and imlaei.
-  final verseWithMode = AlQuran.getVerse(
+  const verseWithMode = AlQuran.getVerse(
     1,
     1,
     mode: VerseMode.uthmani,
   );
-  print(verseWithMode);
-  // Verse(
+  console.log(verseWithMode);
+  // {
   //   id: 1,
   //   verseKey: "1:1",
   //   text: "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
   //   chapterID: 1,
   //   pageNumber: 1,
   //   juzNumber: 1,
-  // )
+  // }
 
   // By Juz
-  final versesByJuz = AlQuran.versesByJuz(1);
-  print("""
-    VersesByJuz
-    Verses: ${versesByJuz.length}
-  """);
+  const versesByJuz = AlQuran.versesByJuz(1);
+  console.log(`
+    VersesByJuz\n
+    Verses: ${versesByJuz.length}\
+  `);
   //  VersesByJuz
   //  Verses: 148
 
   // By Chapter
-  final versesByChapter = AlQuran.versesByChapter(1);
-  print("""
-    VersesByChapter
+  const versesByChapter = AlQuran.versesByChapter(1);
+  console.log(`
+    VersesByChapter\n
     Verses: ${versesByChapter.length}
-  """);
+  `);
   //  VersesByChapter
   //  Verses: 7
   ```
 
 - Translation
 
-  ```dart
-  final translation = AlQuran.getTranslation(
+  ```ts
+  const translation = AlQuran.getTranslation(
       TranslationType.idIndonesianIslamicAffairsMinistry, "1:1");
-  print(translation);
-  // VerseTranslation(
+  console.log(translation);
+  // {
   //   id: 181444,
   //   verseKey: "1:1",
   //   text: "Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.",
   //   resourceID: 33,
   //   languageName: "indonesian"
-  // )
+  // }
   ```
 
 - Chapter Audio URL
 
-  ```dart
-  final chapterAudio = AlQuran.getAudioURLByChapter(1);
-  print(chapterAudio); // https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/1.mp3
+  ```ts
+  const chapterAudio = AlQuran.getAudioURLByChapter(1);
+  console.log(chapterAudio); // https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/1.mp3
 
   // With Edition
-  final chapterAudioWithEdition = AlQuran.getAudioURLByChapter(
+  const chapterAudioWithEdition = AlQuran.getAudioURLByChapter(
     1,
     edition: AudioEdition.ar_husary,
   );
-  print(chapterAudioWithEdition); // https://cdn.islamic.network/quran/audio-surah/128/ar.husary/1.mp3
+  console.log(chapterAudioWithEdition); // https://cdn.islamic.network/quran/audio-surah/128/ar.husary/1.mp3
   ```
 
 - Verse Audio URL
 
-  ```dart
-  final verseAudio = AlQuran.getAudioURLByVerse(1);
-  print(verseAudio); // https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3
+  ```ts
+  const verseAudio = AlQuran.getAudioURLByVerse(1);
+  console.log(verseAudio); // https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3
 
   // With Edition
-  final verseAudioWithEdition = AlQuran.getAudioURLByVerse(1,
+  const verseAudioWithEdition = AlQuran.getAudioURLByVerse(1,
       edition: AudioEdition.ar_husary);
-  print(verseAudioWithEdition); // https://cdn.islamic.network/quran/audio/128/ar.husary/1.mp3
+  console.log(verseAudioWithEdition); // https://cdn.islamic.network/quran/audio/128/ar.husary/1.mp3
   ```
 
 - Verse Image URL
 
-  ```dart
-  final imageUrl = AlQuran.getImageURLByVerse("1:1");
-  print(imageUrl); // https://cdn.islamic.network/quran/images/1_1.png
+  ```ts
+  const imageUrl = AlQuran.getImageURLByVerse("1:1");
+  console.log(imageUrl); // https://cdn.islamic.network/quran/images/1_1.png
 
   // With high quality
-  final imageUrlHighQuality = AlQuran.getImageURLByVerse("1:1", highQuality: true);
-  print(imageUrlHighQuality); // https://cdn.islamic.network/quran/images/high-resolution/1_1.png
+  const imageUrlHighQuality = AlQuran.getImageURLByVerse("1:1", highQuality: true);
+  console.log(imageUrlHighQuality); // https://cdn.islamic.network/quran/images/high-resolution/1_1.png
   ```
 
 - Random Verse
 
-  ```dart
-  final randomVerse = AlQuran.randomVerse();
-  print("""
-    RandomVerse
-    Verse: ${randomVerse?.verse.toJson()}
-    Trans: ${randomVerse?.translation.toJson()}
-  """);
+  ```ts
+  const randomVerse = AlQuran.randomVerse();
+  console.log(`
+    RandomVerse\n
+    Verse: ${randomVerse.verse}\n
+    Trans: ${randomVerse.translation}
+  `);
   //  RandomVerse
   //  Verse: {
   //    id: 3247,
@@ -260,15 +251,15 @@
   //  }
 
   // With mode and translation
-  final randomVerseWithMode = AlQuran.randomVerse(
+  const randomVerseWithMode = AlQuran.randomVerse(
     mode: VerseMode.uthmani,
     translationType: TranslationType.idIndonesianIslamicAffairsMinistry,
   );
-  print("""
-    RandomVerseWithMode
-    Verse: ${randomVerseWithMode?.verse.toJson()}
+  console.log(`
+    RandomVerseWithMode\n
+    Verse: ${randomVerseWithMode?.verse.toJson()}\n
     Trans: ${randomVerseWithMode?.translation.toJson()}
-  """);
+  `);
   //  RandomVerseWithMode
   //  Verse: {
   //    id: 1648,
@@ -289,21 +280,21 @@
 
 - Search
 
-  ```dart
-  final searchResult = AlQuran.search(
+  ```ts
+  const searchResult = AlQuran.search(
     'annas',
     TranslationType.idIndonesianIslamicAffairsMinistry,
   );
 
-  print("""
-    SearchResult
-    Chapters: ${searchResult.chapters}
+  console.log(`
+    SearchResult\n
+    Chapters: ${searchResult.chapters}\n
     Verses: ${searchResult.verses}
-  """);
+  `);
 
   //  SearchResult
   //  Chapters: [
-  //    Chapter(
+  //    {
   //      id: 36,
   //      bismillahPre: true,
   //      nameArabic: "يس",
@@ -311,7 +302,7 @@
   //      nameSimple: "Ya-Sin",
   //      pages: [440, 445],
   //      revelationOrder: 41,
-  //      revelationPlace: ChapterRevelationPlace.makkah,
+  //      revelationPlace: 'makkah',
   //      translatedName: {
   //        id: "Yas Sin",
   //        en: "Ya Sin",
@@ -320,7 +311,7 @@
   //        fr: "Ya-Sin"
   //      },
   //      versesCount: 83
-  //    )
+  //    }
   //  ]
   //  Verses: []
   ```

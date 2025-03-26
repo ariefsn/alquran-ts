@@ -1,6 +1,6 @@
 {
-  "name": "alquran",
-  "version": "0.0.1",
+  "name": "alfurqan",
+  "version": "0.0.2",
   "description": "Al Quran verses, translations, juzs and chapters. Offline.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

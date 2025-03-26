@@ -6,6 +6,7 @@ import { VERSES_UTHMANI } from "./data/typescript/verses/uthmani"
 import { getTranslations, getVerses, isChapterOutOfRange, isJuzOutOfRange, isVerseOutOfRange, toArabicNumber } from "./helper"
 
 export * from './constant'
+export * from './data/typescript/types'
 
 export type VerseComplete = {
   verse: Verse
@@ -38,7 +39,7 @@ export class AlQuran {
     return CHAPTERS.filter(e => e.revelationPlace === 'madinah').length
   }
 
-  static get totalMakkahSurah(): number {
+  static get totalMakkiSurah(): number {
     return CHAPTERS.filter(e => e.revelationPlace === 'makkah').length
   }
 
