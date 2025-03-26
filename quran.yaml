@@ -1,0 +1,21 @@
+language: "en"
+
+# Get from https://api-docs.quran.com/docs/quran.com_versioned/languages
+languages:
+  - "id"
+  - "en"
+  - "ar"
+  - "tr"
+  - "fr"
+
+# Get the ID from https://api-docs.quran.com/docs/quran.com_versioned/translations
+translations:
+  - 33
+  - 85
+  - 210
+  - 136
+
+output:
+  dir: src/data
+  types:
+    - typescript
