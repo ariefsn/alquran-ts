@@ -13,19 +13,19 @@ export type Translation = {
 }
 
 export type Verse = {
-	id: number
-	verseKey: string
-	text: string
-	chapterID: number
-	pageNumber: number
-	juzNumber: number
+  id: number
+  verseKey: string
+  text: string
+  chapterID: number
+  pageNumber: number
+  juzNumber: number
 }
 
 export type VerseTranslation = {
-	id: number
+  id: number
   resourceID: number
-	text: string
-	verseKey: string
+  text: string
+  verseKey: string
   languageName: string
 }
 
@@ -63,4 +63,9 @@ export type Juz = {
   id: number
   number: number
   verse: JuzVerse
+}
+
+export type Transliteration = {
+  id: string
+  text: string
 }

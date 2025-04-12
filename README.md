@@ -1,6 +1,6 @@
 # Al Furqan
 
-> Al Quran verses, translations, juzs and chapters. Offline 🎉.
+> Al Quran verses, translations, transliterations, juzs and chapters. Offline 🎉.
 
 ## Features
 
@@ -21,6 +21,7 @@
 - Generate Random Verse
 - Search Chapters or Verses
 - Verses by Juz or Chapter
+- Transliteration
 
 ## Install
 
@@ -81,7 +82,7 @@ Add `alfurqan` as a dependency.
 - Juz
 
   ```ts
-  const juz = AlQuran.getJuz(1, 1);
+  const juz = AlQuran.juz({ chapterNumber: 1, verseNumber: 1 });
   console.log(juz);
   // {
   //   verse: {
@@ -101,7 +102,7 @@ Add `alfurqan` as a dependency.
 - Chapter
 
   ```ts
-  const chapter = AlQuran.getChapter(1);
+  const chapter = AlQuran.chapter(1);
   console.log(chapter);
   // {
   //   id: 1,
@@ -126,7 +127,7 @@ Add `alfurqan` as a dependency.
 - Verse
 
   ```ts
-  const verse = AlQuran.getVerse(1, 1);
+  const verse = AlQuran.verse(1, 1);
   console.log(verse);
   // {
   //   id: 1,
@@ -138,7 +139,7 @@ Add `alfurqan` as a dependency.
   // };
 
   // With Mode. Available indopak, uthmani, uthmani tajweed, and imlaei.
-  const verseWithMode = AlQuran.getVerse(
+  const verseWithMode = AlQuran.verse(
     1,
     1,
     mode: VerseMode.uthmani,
@@ -175,7 +176,7 @@ Add `alfurqan` as a dependency.
 - Translation
 
   ```ts
-  const translation = AlQuran.getTranslation(
+  const translation = AlQuran.translation(
       TranslationType.idIndonesianIslamicAffairsMinistry, "1:1");
   console.log(translation);
   // {
@@ -190,11 +191,11 @@ Add `alfurqan` as a dependency.
 - Chapter Audio URL
 
   ```ts
-  const chapterAudio = AlQuran.getAudioURLByChapter(1);
+  const chapterAudio = AlQuran.audioURLByChapter(1);
   console.log(chapterAudio); // https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/1.mp3
 
   // With Edition
-  const chapterAudioWithEdition = AlQuran.getAudioURLByChapter(
+  const chapterAudioWithEdition = AlQuran.audioURLByChapter(
     1,
     edition: AudioEdition.ar_husary,
   );
@@ -204,11 +205,11 @@ Add `alfurqan` as a dependency.
 - Verse Audio URL
 
   ```ts
-  const verseAudio = AlQuran.getAudioURLByVerse(1);
+  const verseAudio = AlQuran.audioURLByVerse(1);
   console.log(verseAudio); // https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3
 
   // With Edition
-  const verseAudioWithEdition = AlQuran.getAudioURLByVerse(1,
+  const verseAudioWithEdition = AlQuran.audioURLByVerse(1,
       edition: AudioEdition.ar_husary);
   console.log(verseAudioWithEdition); // https://cdn.islamic.network/quran/audio/128/ar.husary/1.mp3
   ```
@@ -216,11 +217,11 @@ Add `alfurqan` as a dependency.
 - Verse Image URL
 
   ```ts
-  const imageUrl = AlQuran.getImageURLByVerse("1:1");
+  const imageUrl = AlQuran.imageURLByVerse("1:1");
   console.log(imageUrl); // https://cdn.islamic.network/quran/images/1_1.png
 
   // With high quality
-  const imageUrlHighQuality = AlQuran.getImageURLByVerse("1:1", highQuality: true);
+  const imageUrlHighQuality = AlQuran.imageURLByVerse("1:1", highQuality: true);
   console.log(imageUrlHighQuality); // https://cdn.islamic.network/quran/images/high-resolution/1_1.png
   ```
 
@@ -314,4 +315,13 @@ Add `alfurqan` as a dependency.
   //    }
   //  ]
   //  Verses: []
+  ```
+
+- Transliteration
+
+  ```ts
+  const transliteration = AlQuran.transliteration("1:1");
+  console.log(`Transliteration: ${transliteration}`);
+
+  //  Transliteration: {id: "1:1", text: "Bismi Allāhi Ar-Raĥmāni Ar-Raĥīmi"}
   ```

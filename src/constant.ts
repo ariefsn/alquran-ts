@@ -41,6 +41,7 @@ export enum AudioEdition {
 }
 
 export enum ErrorMessages {
+  juzChapterVerseIsRequired = "Please fill juz number or chapter number or verse number.",
   juzNumberOutOfRange = "Juz number out of range",
   chapterNumberOutOfRange = "Chapter number out of range",
   verseNumberOutOfRange = "Verse number out of range",

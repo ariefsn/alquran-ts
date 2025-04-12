@@ -1,7 +1,7 @@
 {
   "name": "alfurqan",
-  "version": "0.0.2",
-  "description": "Al Quran verses, translations, juzs and chapters. Offline.",
+  "version": "0.0.3",
+  "description": "Al Quran verses, translations, transliterations, juzs and chapters. Offline.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -29,7 +29,8 @@
     "ayah",
     "verse",
     "chapter",
-    "surah"
+    "surah",
+    "transliteration"
   ],
   "author": "Arief Setiyo Nugroho",
   "license": "MIT",

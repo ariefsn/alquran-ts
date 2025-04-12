@@ -1,7 +1,8 @@
 import { AudioEdition, ErrorMessages, TranslationType, VerseMode } from "./constant"
 import { CHAPTERS } from "./data/typescript/chapter"
 import { JUZS } from "./data/typescript/juz"
-import { Chapter, Juz, Verse, VerseTranslation } from "./data/typescript/types"
+import { TRANSLITERATIONS } from "./data/typescript/transliteration"
+import { Chapter, Juz, Transliteration, Verse, VerseTranslation } from "./data/typescript/types"
 import { VERSES_UTHMANI } from "./data/typescript/verses/uthmani"
 import { getTranslations, getVerses, isChapterOutOfRange, isJuzOutOfRange, isVerseOutOfRange, toArabicNumber } from "./helper"
 
@@ -43,7 +44,19 @@ export class AlQuran {
     return CHAPTERS.filter(e => e.revelationPlace === 'makkah').length
   }
 
-  static juz(chapterNumber: number, verseNumber: number): Juz {
+  static juz({ chapterNumber = 0, verseNumber = 0, juzNumber = 0 }: { chapterNumber?: number, verseNumber?: number, juzNumber?: number }): Juz {
+    if (!chapterNumber && !verseNumber && !juzNumber) {
+      throw new Error(ErrorMessages.juzChapterVerseIsRequired);
+    }
+
+    if (juzNumber) {
+      if (isJuzOutOfRange(juzNumber)) {
+        throw new Error(ErrorMessages.juzNumberOutOfRange);
+      }
+
+      return JUZS.find(e => e.number === juzNumber)!;
+    }
+
     if (isChapterOutOfRange(chapterNumber)) {
       throw new Error(ErrorMessages.chapterNumberOutOfRange);
     }
@@ -185,5 +198,15 @@ export class AlQuran {
         translation: e
       }))
     }
+  }
+
+  static transliteration(verseKey: string): Transliteration {
+    const trans = TRANSLITERATIONS.find(e => e.id === verseKey);
+
+    if (!trans) {
+      throw new Error(ErrorMessages.verseKeyInvalid);
+    }
+
+    return trans
   }
 }
